@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<title>Reservation Details</title>
+</head>
+<body>
+<h2>Flight Details</h2>
+Airlines: <span th:text="${reservation.flight.operatingAirlines}" th:remove="tag"></span><br/>
+Flight No: <span th:text="${reservation.flight.fightNumer}" th:remove="tag"></span><br/>
+Departure City: <span th:text="${reservation.flight.departureCity}" th:remove="tag"></span><br/>
+Arrival City:  <span th:text="${reservation.flight.arrivalCity}" th:remove="tag"></span><br/>
+Date of Departure:  <span th:text="${reservation.flight.dateOfDeparture}" th:remove="tag"></span><br/>
+Estimate Departure Time: <span th:text="${reservation.flight.estimatedDepartureTime}" th:remove="tag"></span><br/>
+
+<h2> Passenger Details</h2>
+
+First Name: <span th:text="${reservation.passenger.firstName}" th:remove="tag"></span><br/>
+Last Name: <span th:text="${reservation.passenger.lastName}" th:remove="tag"></span><br/>
+Middle Name: <span th:text="${reservation.passenger.middleName}" th:remove="tag"></span><br/>
+Email:  <span th:text="${reservation.passenger.email}" th:remove="tag"></span><br/>
+Phone:  <span th:text="${reservation.passenger.phone}" th:remove="tag"></span><br/>
+
+<form action="completeCheckIn" method="post">
+Enter the Number Of Bags you will carry : <input type="text" name="numberOfBags"/>
+<input type="hidden" name="reservationId" th:value="${reservation.id}"/>
+<input type="submit" value="Check In"/>
+</form>
+</body>
+</html>
